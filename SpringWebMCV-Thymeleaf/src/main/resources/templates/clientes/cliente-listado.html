@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head"></head>
+<body> 
+  <header th:replace="common/header :: header"></header>
+    <section class="container-fluid min-vh-100 mt-2">
+        <div class="row m-2">
+            <div class="col12">
+                <button class="btn btn-success mr-2" id="btnClienteNuevo">
+                    <i class="material-icons">add_circle</i> Nuevo</button>
+
+				<button class="btn btn-success mr-2" id="btnClienteRefresh">
+					<i class="material-icons">refresh</i> Refresh</button>
+			</div>
+        </div>
+        <div class="card">
+            <div class="card-header h5 text-primary ">
+                Listado de Cliente
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-hover m-2">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Dirección</th>
+                            <th>Teléfono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cliente : ${clientes}">
+                            <td th:text="${cliente.id}"></td>
+                            <td th:text="${cliente.nombre}"></td>
+                            <td th:text="${cliente.direccion}"></td>
+                            <td th:text="${cliente.telefono}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <footer th:replace="common/footer :: footer"></footer>
+</body>
+</html>
